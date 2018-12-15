@@ -1,0 +1,44 @@
+{
+    "model" : {
+        "min_input_size":       608,
+        "max_input_size":       608,
+        
+        "anchors":             [21,35, 42,61, 54,90, 68,121, 86,82, 92,134, 103,169, 130,207, 177,285],
+        "labels":              ["0_pepper_flower", "1_pepper_young", "2_pepper_matured", "3_pepper_covered"]
+    },
+
+    "train": {
+        "train_image_folder":   "./kfarmbot/images",
+        "train_annot_folder":   "./kfarmbot/annots",
+        "cache_name":           "kfarmbot_train.pkl",
+
+        "train_times":          8,
+        "batch_size":           24,
+        "learning_rate":        1e-4,
+        "nb_epochs":            100,
+        "warmup_epochs":        3,
+        "ignore_thresh":        0.5,
+        
+        "gpus":                 "0,1,2,3",			
+
+        "grid_scales":          [1,1,1],
+        "obj_scale":            5,
+        "noobj_scale":          1,
+        "xywh_scale":           1,
+        "class_scale":          1,
+
+        "tensorboard_dir":      "logs",
+        
+        " tiger ": "MODEL IS HERE. ************************",
+        "saved_weights_name":   "kfarmbot_train.h5", 
+        "debug":                true
+    },
+
+    "valid": {
+        "valid_image_folder":   "",
+        "valid_annot_folder":   "",
+        "cache_name":           "",
+
+        "valid_times":          1
+    }
+}
